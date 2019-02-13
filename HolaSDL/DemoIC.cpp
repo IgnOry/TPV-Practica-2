@@ -1,8 +1,8 @@
 #include "DemoIC.h"
 
 #include "DemoContainer.h"
-DemoIC::DemoIC(SDL_Keycode ctrlKey) :
-		ctrlKey_(ctrlKey) {
+DemoIC::DemoIC(SDL_Keycode ctrlKey)
+{
 }
 
 DemoIC::~DemoIC() {

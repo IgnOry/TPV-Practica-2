@@ -5,7 +5,7 @@ using namespace std;
 
 AsteroidsGame::AsteroidsGame() :
 		SDLGame("Asteroids", _WINDOW_WIDTH_, _WINDOW_HEIGHT_),
-		demoContainer_(this)
+		fighterContainer_(this, 50, 50, Vector2D(400,300))
 {
 	initGame();
 }
@@ -15,7 +15,7 @@ AsteroidsGame::~AsteroidsGame() {
 }
 
 void AsteroidsGame::initGame() {
-	actors_.push_back(&demoContainer_);
+	actors_.push_back(&fighterContainer_);
 }
 
 void AsteroidsGame::closeGame() {
