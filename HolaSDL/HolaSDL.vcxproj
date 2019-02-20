@@ -11,13 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Asteroid.cpp" />
+    <ClCompile Include="Asteroids.cpp" />
     <ClCompile Include="AsteroidsGame.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="BounceOnBorderPC.cpp" />
     <ClCompile Include="BoundingBoxGC.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Bullets.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Container.cpp" />
+    <ClCompile Include="DeactivateOnBorderExit.cpp" />
     <ClCompile Include="DemoContainer.cpp" />
     <ClCompile Include="DemoGC.cpp" />
     <ClCompile Include="DemoIC.cpp" />
@@ -37,6 +42,7 @@
     <ClCompile Include="RandomNumberGenerator.cpp" />
     <ClCompile Include="ReduceSpeedPC.cpp" />
     <ClCompile Include="Resources.cpp" />
+    <ClCompile Include="RotatingPC.cpp" />
     <ClCompile Include="RotationIC.cpp" />
     <ClCompile Include="SDLAudioManager.cpp" />
     <ClCompile Include="SDLFontsManager.cpp" />
@@ -52,13 +58,18 @@
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Asteroid.h" />
+    <ClInclude Include="Asteroids.h" />
     <ClInclude Include="AsteroidsGame.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="BounceOnBorderPC.h" />
     <ClInclude Include="BoundingBoxGC.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Bullets.h" />
     <ClInclude Include="Collisions.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Container.h" />
+    <ClInclude Include="DeactivateOnBorderExit.h" />
     <ClInclude Include="DemoContainer.h" />
     <ClInclude Include="DemoGC.h" />
     <ClInclude Include="DemoIC.h" />
@@ -79,6 +90,7 @@
     <ClInclude Include="RandomNumberGenerator.h" />
     <ClInclude Include="ReduceSpeedPC.h" />
     <ClInclude Include="Resources.h" />
+    <ClInclude Include="RotatingPC.h" />
     <ClInclude Include="RotationIC.h" />
     <ClInclude Include="SDLAudioManager.h" />
     <ClInclude Include="SDLFontsManager.h" />

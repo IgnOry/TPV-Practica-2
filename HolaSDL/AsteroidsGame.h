@@ -3,8 +3,10 @@
 #include <vector>
 
 #include "Fighter.h"
+#include "Asteroids.h"
 #include "SDLGame.h"
 #include "GameObject.h"
+#include "SRandBasedGenerator.h"
 
 class AsteroidsGame: public SDLGame {
 
@@ -29,5 +31,5 @@ private:
 	std::vector<GameObject*> actors_;
 
 	Fighter fighterContainer_;
-
+	Asteroids asteroids_;
 };

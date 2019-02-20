@@ -9,8 +9,6 @@
 #include "ReduceSpeedPC.h"
 #include "GunIC.h"
 
-
-
 class Fighter : public Container {
 public:
 	Fighter(SDLGame * game, double width, double height, Vector2D position);
