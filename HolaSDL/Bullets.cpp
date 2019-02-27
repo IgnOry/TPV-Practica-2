@@ -5,6 +5,13 @@ Bullets::Bullets(SDLGame * game):GameObjectPool(game),
 bulletImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::WhiteRect)), naturalMove_(), deactivate_()
 {
 	game_ = game;
+
+	vector<Bullet*> bullets = getAllObjects();
+
+	for (Bullet* b : bullets) {
+		b->addC(&bulletImage_);
+		b->addC(&naturalMove_);
+	}
 }
 
 Bullets::~Bullets()
@@ -17,8 +24,7 @@ void Bullets::createBullets(int n)
 	b->setActive(true);
 	cout << "Bala creada" << endl;
 
-	b->addC(&bulletImage_);
-	b->addC(&naturalMove_);
+	
 	b->setHeight(20);
 	b->setWidth(5);
 	b->setPosition(Vector2D(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(50, 750), getGame()->getServiceLocator()->getRandomGenerator()->nextInt(50, 550)));

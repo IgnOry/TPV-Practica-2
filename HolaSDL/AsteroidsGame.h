@@ -8,6 +8,7 @@
 #include "SDLGame.h"
 #include "GameObject.h"
 #include "SRandBasedGenerator.h"
+#include "GameManager.h"
 
 class AsteroidsGame: public SDLGame {
 
@@ -34,4 +35,5 @@ private:
 	Fighter fighterContainer_;
 	Asteroids asteroids_;
 	Bullets bullets_;
+	GameManager manager_;
 };

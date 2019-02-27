@@ -148,6 +148,15 @@
     <ClCompile Include="DeactivateOnBorderExit.cpp">
       <Filter>Archivos de recursos\.cpp</Filter>
     </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Archivos de recursos\.cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCtrlIC.cpp" />
+    <ClCompile Include="ScoreViewer.cpp" />
+    <ClCompile Include="LivesViewer.cpp" />
+    <ClCompile Include="GameStatusViewGC.cpp" />
+    <ClCompile Include="FighterAsteroidCollision.cpp" />
+    <ClCompile Include="BulletsAsteroidsCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AsteroidsGame.h">
@@ -291,5 +300,14 @@
     <ClInclude Include="DeactivateOnBorderExit.h">
       <Filter>Archivos de recursos\h</Filter>
     </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Archivos de recursos\h</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCtrlIC.h" />
+    <ClInclude Include="ScoreViewer.h" />
+    <ClInclude Include="LivesViewer.h" />
+    <ClInclude Include="GameStatusViewGC.h" />
+    <ClInclude Include="FighterAsteroidCollision.h" />
+    <ClInclude Include="BulletsAsteroidsCollision.h" />
   </ItemGroup>
 </Project>
