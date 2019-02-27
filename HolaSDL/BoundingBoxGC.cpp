@@ -37,7 +37,7 @@ void BoundingBoxGC::render(Container* c, Uint32 time) {
 	double y = c->getPosition().getY() + c->getHeight() / 2.0;
 
 	// draw lines between the corners, after shifting them by (x,y)
-	SDL_SetRenderDrawColor(renderer, color_.r, color_.g, color_.b, color_.a);
+	SDL_SetRenderDrawColor(renderer, color_.r, color_.g, color_.b, color_.b);
 	SDL_RenderDrawLine(renderer, lu.getX() + x, lu.getY() + y, ru.getX() + x, ru.getY() + y);
 	SDL_RenderDrawLine(renderer, ru.getX() + x, ru.getY() + y, rb.getX() + x, rb.getY() + y);
 	SDL_RenderDrawLine(renderer, rb.getX() + x, rb.getY() + y, lb.getX() + x, lb.getY() + y);

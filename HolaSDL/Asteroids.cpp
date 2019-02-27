@@ -32,7 +32,7 @@ void Asteroids::createAsteroids(int n)
 	{
 		Asteroid *a = getUnusedObject();
 		a->setActive(true);
-		cout << "Creado";
+		cout << "Asteroide creado" << endl;
 	}
 }
 

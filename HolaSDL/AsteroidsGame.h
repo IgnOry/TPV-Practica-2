@@ -4,6 +4,7 @@
 
 #include "Fighter.h"
 #include "Asteroids.h"
+#include "Bullets.h"
 #include "SDLGame.h"
 #include "GameObject.h"
 #include "SRandBasedGenerator.h"
@@ -32,4 +33,5 @@ private:
 
 	Fighter fighterContainer_;
 	Asteroids asteroids_;
+	Bullets bullets_;
 };
