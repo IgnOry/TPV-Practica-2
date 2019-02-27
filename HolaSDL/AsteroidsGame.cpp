@@ -52,6 +52,9 @@ void AsteroidsGame::handleInput(Uint32 time) {
 			case SDLK_ESCAPE:
 				exit_ = true;
 				break;
+			case SDLK_SPACE:
+				bullets_.createBullets(1);
+				break;
 			// Pressing f to toggle fullscreen.
 			case SDLK_f:
 				int flags = SDL_GetWindowFlags(window_);
@@ -61,6 +64,7 @@ void AsteroidsGame::handleInput(Uint32 time) {
 					SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
 				}
 				break;
+		
 			}
 		}
 		for (GameObject* o : actors_) {
