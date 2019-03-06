@@ -7,6 +7,7 @@
 #include "LivesViewer.h"
 #include "FighterAsteroidCollision.h"
 #include "BulletsAsteroidsCollision.h"
+#include "Messages_defs.h"
 
 class GameManager : public Container {
 public: 
@@ -17,6 +18,7 @@ public:
 	int getLives();
 	int getWinner();
 	bool getGameOver();
+	virtual void receive(const void * senderObj, const msg::Message & msg);
 	// … 
 
 private: 

@@ -23,5 +23,5 @@ void LivesViewer::render(Container * c, Uint32 time)
 
 
 	score.render(gm->getGame()->getRenderer(),
-		gm->getGame()->getWindowWidth() / 2 - score.getWidth() / 2, 10); //Coordenadas
+		10, 10); //Coordenadas
 }

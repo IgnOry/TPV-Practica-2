@@ -22,7 +22,7 @@ void GameStatusViewGC::render(Container * c, Uint32 time)
 				Resources::ARIAL24)), { COLOR(0x111122ff) });
 
 		score.render(gm->getGame()->getRenderer(),
-			gm->getGame()->getWindowWidth() / 2 - score.getWidth() / 2, 10); //Coordenadas
+			gm->getGame()->getWindowWidth() / 2 - score.getWidth() / 2, gm->getGame()->getWindowHeight()/2 - score.getHeight()); //Coordenadas
 	}
 	else if (gm->getWinner() == 2)//winner = player
 	{
@@ -32,7 +32,7 @@ void GameStatusViewGC::render(Container * c, Uint32 time)
 				Resources::ARIAL24)), { COLOR(0x111122ff) });
 
 		score.render(gm->getGame()->getRenderer(),
-			gm->getGame()->getWindowWidth() / 2 - score.getWidth() / 2, 10); //Coordenadas
+			gm->getGame()->getWindowWidth() / 2 - score.getWidth() / 2, gm->getGame()->getWindowHeight() / 2 - score.getHeight()); //Coordenadas
 	}
 	// draw score
 
@@ -44,7 +44,7 @@ void GameStatusViewGC::render(Container * c, Uint32 time)
 				Resources::ARIAL24)), { COLOR(0x111122ff) });
 
 		score.render(gm->getGame()->getRenderer(),
-			gm->getGame()->getWindowWidth() / 2 - score.getWidth() / 2, 10); //Coordenadas
+			gm->getGame()->getWindowWidth() / 2 - score.getWidth() / 2, gm->getGame()->getWindowHeight() / 2 - score.getHeight()); //Coordenadas
 	}
 	else
 	{
@@ -54,7 +54,7 @@ void GameStatusViewGC::render(Container * c, Uint32 time)
 				Resources::ARIAL24)), { COLOR(0x111122ff) });
 
 		score.render(gm->getGame()->getRenderer(),
-			gm->getGame()->getWindowWidth() / 2 - score.getWidth() / 2, 10); //Coordenadas
+			gm->getGame()->getWindowWidth() / 2 - score.getWidth() / 2, gm->getGame()->getWindowHeight() / 2 - score.getHeight()); //Coordenadas
 	}
 
 }

@@ -8,11 +8,13 @@
 #include "ThrustIC.h"
 #include "ReduceSpeedPC.h"
 #include "GunIC.h"
+#include "Messages_defs.h"
 
 class Fighter : public Container {
 public:
 	Fighter(SDLGame * game, double width, double height, Vector2D position);
 	virtual ~Fighter();
+	virtual void receive(const void* senderObj, const msg::Message& msg);
 	// …
 private:
 	//…

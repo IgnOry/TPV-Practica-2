@@ -57,7 +57,7 @@ void AsteroidsGame::handleInput(Uint32 time) {
 				exit_ = true;
 				break;
 			case SDLK_SPACE:
-				bullets_.createBullets(1);
+				//bullets_.createBullets(1);
 				break;
 			// Pressing f to toggle fullscreen.
 			case SDLK_f:

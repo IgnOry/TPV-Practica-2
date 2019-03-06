@@ -4,8 +4,6 @@
 
 Asteroid::Asteroid()
 {
-	setWidth(20);
-	setHeight(20);
 }
 
 
