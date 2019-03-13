@@ -3,7 +3,7 @@
 #include "PhysicsComponent.h"
 #include "Asteroid.h"
 #include "Collisions.h"
-//#include "Fighter.h"
+#include "Messages_defs.h"
 
 class FighterAsteroidCollision: public PhysicsComponent
 {
@@ -11,6 +11,7 @@ public:
 	FighterAsteroidCollision();
 	~FighterAsteroidCollision();
 	virtual void update(Container* c, Uint32 time);
+	virtual void receive (Container* c, const msg::Message & msg);
 
 protected:
 

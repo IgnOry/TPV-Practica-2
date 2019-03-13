@@ -17,6 +17,13 @@ void GunIC::handleInput(Container * c, Uint32 time, const SDL_Event & event)
 				Vector2D(0.0, -(c->getHeight() / 2.0 + 5.0)).rotate(c->getRotation());
 			Vector2D d = Vector2D(0, -1).rotate(c->getRotation());
 
+			c->globalSend(c, msg::Shoot(c->getId(), msg::Broadcast, p, d, 0));
+			
+			c->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::GunShot, 0);
+
+
+			
+
 			cout << p << endl;
 			cout << d << endl;
 		}

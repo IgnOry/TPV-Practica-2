@@ -1,5 +1,6 @@
 #pragma once
 #include "InputComponent.h"
+#include "Messages_defs.h"
 
 class GunIC : public InputComponent
 {

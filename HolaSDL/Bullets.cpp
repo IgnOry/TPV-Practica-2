@@ -54,7 +54,7 @@ void Bullets::receive(const void * senderObj, const msg::Message & msg)
 		
 		createBullets(1, static_cast<const msg::Shoot&>(msg).dir_,	static_cast<const msg::Shoot&>(msg).pos_);
 
-		this->getGame()->getServiceLocator()->getAudios()->playMusic(Resources::GunShot, -1);
+		this->getGame()->getServiceLocator()->getAudios()->playMusic(Resources::GunShot, 1);
 		break;
 	}
 }

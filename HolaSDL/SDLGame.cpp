@@ -76,7 +76,8 @@ void SDLGame::initResources() {
 	}
 
 	for (auto &music : Resources::musics_) {
-		audio_.loadSound(music.id, music.fileName);
+		cout << music.fileName << endl;
+		audio_.loadMusic(music.id, music.fileName);
 	}
 
 }

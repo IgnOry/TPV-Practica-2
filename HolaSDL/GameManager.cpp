@@ -45,6 +45,8 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg)
 {
 	Container::receive(senderObj, msg);
 
+	cout << msg.type_ << endl;
+
 	switch (msg.type_) {
 	case msg::GAME_START:
 		gameOver_ = false;
@@ -53,7 +55,7 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg)
 		break;
 	case msg::ROUND_START:
 		running_ = true;
-		this->getGame()->getServiceLocator()->getAudios()->playMusic(Resources::ImperialMarch, 1);
+		getGame()->getServiceLocator()->getAudios()->playMusic(Resources::ImperialMarch);
 		break;
 	case msg::ASTEROID_DESTROYED:
 		score_ += static_cast<const msg::AsteroidDestroyed&>(msg).points_;
