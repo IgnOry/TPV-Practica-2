@@ -11,7 +11,7 @@ class Asteroids : public GameObjectPool<Asteroid, 50> {
 public:
 	Asteroids(SDLGame* game);
 	virtual ~Asteroids();
-	void createAsteroids(int n, int generation, int width_, int height_, int velocity_);
+	void createAsteroids(int n, int generation, int width_, int height_, int velocity_, double posX, double posY);
 	virtual void receive(const void* senderObj, const msg::Message& msg);
 private:
 	// component for Asteroid
