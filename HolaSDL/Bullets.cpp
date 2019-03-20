@@ -22,7 +22,7 @@ void Bullets::createBullets(int n, Vector2D dir, Vector2D pos_)
 {
 	Bullet *b = getUnusedObject();
 	b->setActive(true);
-	cout << "Bala creada" << endl;
+	//cout << "Bala creada" << endl;
 
 	
 	b->setHeight(5);

@@ -31,7 +31,7 @@ void FighterAsteroidCollision::update(Container * c, Uint32 time)
 
 void FighterAsteroidCollision::receive(Container * c, const msg::Message & msg)
 {
-	cout << "*** " << msg.type_ << endl;
+	cout << "*** colision ***" << msg.type_ << endl;
 
 	switch (msg.type_) {
 	case msg::ASTEROIDS_INFO:

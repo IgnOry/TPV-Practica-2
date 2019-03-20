@@ -7,7 +7,7 @@ asteroidImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::A
 {
 	game_ = game;
 	
-	//createAsteroids(5);
+	createAsteroids(5,3,30,30,10);
 		
 	for (Asteroid* a : getAllObjects()) {
 		a->addC(&asteroidImage_);
