@@ -21,8 +21,5 @@ void LivesViewer::render(Container * c, Uint32 time)
 	// draw score
 	
 	for (int j = 0; j < i; j++)
-	{
 		lives.render(gm->getGame()->getRenderer(),	10 + 15 * j, 10);
-	}
-	
 }

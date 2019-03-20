@@ -20,9 +20,7 @@ void FighterAsteroidCollision::update(Container * c, Uint32 time)
 	{
 		for (int i = 0; i < asteroids_->size(); i++) {
 			if (gm->getRunning() && asteroids_->at(i)->isActive() && fighter_->isActive() && Collisions::collidesWithRotation(asteroids_->at(i), fighter_))
-			{
 				c->globalSend(this, msg::FighterAsteroidCollisionMsg(c->getId(), msg::Broadcast, fighter_, asteroids_->at(i)));
-			}
 		}
 	}
 }

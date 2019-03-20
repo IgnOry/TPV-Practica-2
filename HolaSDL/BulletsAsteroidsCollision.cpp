@@ -19,7 +19,9 @@ void BulletsAsteroidsCollision::update(Container * c, Uint32 time)
 	{
 		for (int i = 0; i < asteroids_->size(); i++) {
 			for (int j = 0; j < bullets_->size(); j++) {
-				if (gm->getRunning() && asteroids_->at(i)->isActive() && bullets_->at(j)->isActive() && Collisions::collidesWithRotation(asteroids_->at(i), bullets_->at(j)))
+				if (gm->getRunning() && asteroids_->at(i)->isActive() && bullets_->at(j)->isActive() &&
+					Collisions::collidesWithRotation(asteroids_->at(i), bullets_->at(j)))
+
 					c->globalSend(c, msg::BulletAsteroidCollision(c->getId(), msg::Broadcast, bullets_->at(j), asteroids_->at(i)));
 			}
 		}

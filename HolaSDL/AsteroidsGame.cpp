@@ -27,11 +27,6 @@ void AsteroidsGame::initGame() {
 	addObserver(&asteroids_);
 	addObserver(&bullets_);
 	addObserver(&manager_);
-
-	/*observers_.push_back(&fighterContainer_);
-	observers_.push_back(&asteroids_);
-	observers_.push_back(&bullets_);
-	observers_.push_back(&manager_);*/
 }
 
 void AsteroidsGame::closeGame() {
