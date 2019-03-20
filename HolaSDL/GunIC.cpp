@@ -19,13 +19,7 @@ void GunIC::handleInput(Container * c, Uint32 time, const SDL_Event & event)
 
 			c->globalSend(c, msg::Shoot(c->getId(), msg::Broadcast, p, d, 0));
 			
-			c->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::GunShot, 0);
-
-
-			
-
-			cout << p << endl;
-			cout << d << endl;
+			c->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::GunShot, 0, 5);
 		}
 	}
 }

@@ -23,19 +23,42 @@ Asteroids::~Asteroids()
 {
 }
 
-void Asteroids::createAsteroids(int n, int generation, int width_, int height_, int velocity_, double posX, double posY)
+void Asteroids::createAsteroidsRound(int n, int generation, int width_, int height_, int velocity_)
 {
 	for (int i = 0; i < n; i++)
 	{
 		Asteroid *a = getUnusedObject();
 		a->setActive(true);
-		cout << "Asteroide creado" << endl;
+
+		a->setPosition(Vector2D(this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, this->getGame()->getWindowWidth()), this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, this->getGame()->getWindowHeight())));
+
+		Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
+		Vector2D v = (c - position_).normalize() * (this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(4, 8) / 20.0) * velocity_;
+		v = v.rotate(this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(1, 360));
+		a->setVelocity(v);
+
+		a->setGenerations(generation);
+
+		a->setWidth(width_);
+		a->setHeight(height_);
+	}
+}
+
+void Asteroids::createAsteroids(int n, int generation, int width_, int height_, Vector2D velocity_, double posX, double posY)
+{
+	for (int i = 0; i < n; i++)
+	{
+		Asteroid *a = getUnusedObject();
+		a->setActive(true);
 		
 		a->setPosition(Vector2D(posX, posY));
 					
-		Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
-		Vector2D v = (c - position_).normalize() * (this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(1, 10) / 20.0) * velocity_;
+		//Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
+		Vector2D v = velocity_;
 
+		v = v.rotate(this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(1, 360));
+
+		v = v.rotate(i*10);
 		a->setVelocity(v);
 	
 		a->setGenerations(generation);
@@ -54,7 +77,7 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg)
 		globalSend(this, msg::AsteroidsInfo(getId(), msg::Broadcast, &getAllObjects()));
 		break;
 	case msg::ROUND_START:
-		createAsteroids(5,3,30,30,10, this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, this->getGame()->getWindowWidth()), this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, this->getGame()->getWindowHeight())); //Pasa el mismo valor a todos los asteroides
+		createAsteroidsRound(5, 3, 30, 30, 10);
 		break;
 	case msg::ROUND_OVER:
 		deactiveAllObjects();
@@ -71,14 +94,15 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg)
 		if (static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getGeneration() > 1)
 			createAsteroids(2, static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getGeneration() - 1, 
 			static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getWidth() * 0.75, 
-			static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getHeight() * 0.75, 1.1, 
+			static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getHeight() * 0.75, 
+			static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getVelocity() * 1.1,
 			static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getPosition().getX(),
 			static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getPosition().getY());
 
 		if (&getAllObjects() == 0)
 			globalSend(this, msg::Message(msg::NO_MORE_ASTEROIDS, this->getId(), msg::Broadcast));
 
-		this->getGame()->getServiceLocator()->getAudios()->playMusic(Resources::Explosion, -1);
+		this->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, 3);
 
 		break;
 	}

@@ -97,7 +97,6 @@ void Container::broadcastToLocalComponents(
 	}
 
 	for (auto pc : pc_){
-		cout << "=>" << pc.data << " " << pc.active << endl;
 
 		if (pc.data != senderObj && pc.active)
 			pc.data->receive(this, msg);

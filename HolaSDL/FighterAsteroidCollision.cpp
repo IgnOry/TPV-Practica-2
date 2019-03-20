@@ -5,8 +5,6 @@
 
 FighterAsteroidCollision::FighterAsteroidCollision()
 {
-
-	cout << "-> " << this << endl;
 }
 
 
@@ -23,7 +21,7 @@ void FighterAsteroidCollision::update(Container * c, Uint32 time)
 		for (int i = 0; i < asteroids_->size(); i++) {
 			if (gm->getRunning() && asteroids_->at(i)->isActive() && fighter_->isActive() && Collisions::collidesWithRotation(asteroids_->at(i), fighter_))
 			{
-				c->globalSend(c, msg::FighterAsteroidCollisionMsg(c->getId(), msg::Broadcast, fighter_, asteroids_->at(i)));
+				c->globalSend(this, msg::FighterAsteroidCollisionMsg(c->getId(), msg::Broadcast, fighter_, asteroids_->at(i)));
 			}
 		}
 	}
@@ -31,7 +29,6 @@ void FighterAsteroidCollision::update(Container * c, Uint32 time)
 
 void FighterAsteroidCollision::receive(Container * c, const msg::Message & msg)
 {
-	cout << "*** colision ***" << msg.type_ << endl;
 
 	switch (msg.type_) {
 	case msg::ASTEROIDS_INFO:

@@ -21,16 +21,20 @@ Bullets::~Bullets()
 void Bullets::createBullets(int n, Vector2D dir, Vector2D pos_)
 {
 	Bullet *b = getUnusedObject();
-	b->setActive(true);
-	//cout << "Bala creada" << endl;
 
-	
-	b->setHeight(5);
-	b->setWidth(1);
-	b->setPosition(pos_-Vector2D(this->getWidth()/2, this->getHeight() / 2));
-	b->setVelocity(dir*5);
-	b->setRotation(Vector2D(0, -1).angle(dir));
-	b->addC(&deactivate_);
+	if (b != nullptr)
+	{
+  		b->setActive(true);
+		this->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::GunShot, 0, 1);
+
+
+		b->setHeight(5);
+		b->setWidth(1);
+		b->setPosition(pos_ - Vector2D(this->getWidth() / 2, this->getHeight() / 2));
+		b->setVelocity(dir * 5);
+		b->setRotation(Vector2D(0, -1).angle(dir));
+		b->addC(&deactivate_);
+	}
 }
 
 void Bullets::receive(const void * senderObj, const msg::Message & msg)
@@ -54,7 +58,6 @@ void Bullets::receive(const void * senderObj, const msg::Message & msg)
 		
 		createBullets(1, static_cast<const msg::Shoot&>(msg).dir_,	static_cast<const msg::Shoot&>(msg).pos_);
 
-		this->getGame()->getServiceLocator()->getAudios()->playMusic(Resources::GunShot, 1);
 		break;
 	}
 }
