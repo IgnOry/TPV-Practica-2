@@ -15,13 +15,14 @@ void LivesViewer::render(Container * c, Uint32 time)
 {
 	GameManager *gm = static_cast<GameManager*>(c);
 
+	Texture lives(gm->getGame()->getRenderer(), "resources/images/heart.png");
+
+	int i = gm->getLives();
 	// draw score
-	Texture lives(gm->getGame()->getRenderer(), "Lives: " +
-		to_string(gm->getLives()),
-		*(gm->getGame()->getServiceLocator()->getFonts()->getFont(
-			Resources::ARIAL24)), { COLOR(0x111122ff) });
-
-
-	lives.render(gm->getGame()->getRenderer(),
-		10, 10); //Coordenadas
+	
+	for (int j = 0; j < i; j++)
+	{
+		lives.render(gm->getGame()->getRenderer(),	10 + 15 * j, 10);
+	}
+	
 }

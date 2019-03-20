@@ -22,6 +22,7 @@ public:
 		Asteroid,
 		Badges,
 		WhiteRect,
+		Heart,
 
 		// text
 		HelloWorld,

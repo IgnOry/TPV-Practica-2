@@ -30,25 +30,26 @@ void Asteroids::createAsteroidsRound(int n, int generation, int width_, int heig
 		Asteroid *a = getUnusedObject();
 		a->setActive(true);
 
-		double x = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, this->getGame()->getWindowWidth());
+		double x = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 4);
+		double y = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 4);
 
-		if (x < this->getGame()->getWindowWidth() / 2)
-			x = x / 2.5;
+
+		if (x <= 2)
+			x = x * 100 + this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 50);
 		else
-			x = x/(this->getGame()->getWindowWidth()/10) + this->getGame()->getWindowWidth() / 1.1;
+			x = x * 200 + this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 50);
 
-		double y = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, this->getGame()->getWindowHeight());
 
-		if (y < this->getGame()->getWindowHeight() / 2)
-			y = y / 2.5;
+		if (y <= 2)
+			y = y * 50;
 		else
-			y = y / (this->getGame()->getWindowHeight() / 10) + this->getGame()->getWindowHeight()/1.1;
+			y = y * 150;
 
 		a->setPosition(Vector2D(x, y));
 
 		Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
 		Vector2D v = (c - a->getPosition()).normalize() * (this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(1, 20) / 20.0) * velocity_;
-		//v = v.rotate(this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(1, 360));
+
 		a->setVelocity(v);
 
 		a->setGenerations(generation);
