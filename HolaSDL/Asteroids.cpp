@@ -5,17 +5,19 @@
 Asteroids::Asteroids(SDLGame* game): GameObjectPool(game),
 asteroidImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(5), showUpAtOppositeSide_()
 {
-	game_ = game;
+	//game_ = game;
 			
 	for (Asteroid* a : getAllObjects()) {
 		a->addC(&asteroidImage_);
 		a->addC(&naturalMove_);
 		a->addC(&rotating_);
 		a->addC(&showUpAtOppositeSide_);
-		a->setPosition(Vector2D(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(50, 750), getGame()->getServiceLocator()->getRandomGenerator()->nextInt(50, 550)));
-		a->setVelocity(Vector2D(double(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(-100, 100))/100, double(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(-100, 100))/100));
-		setId(msg::ObjectId::Asteroids);
+		//a->setPosition(Vector2D(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(50, 750), getGame()->getServiceLocator()->getRandomGenerator()->nextInt(50, 550)));
+		//a->setVelocity(Vector2D(double(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(-100, 100))/100, double(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(-100, 100))/100));
 	}
+
+  setId(msg::ObjectId::Asteroids);
+
 }
 
 
@@ -27,35 +29,39 @@ void Asteroids::createAsteroidsRound(int n, int generation, int width_, int heig
 {
 	for (int i = 0; i < n; i++)
 	{
-		Asteroid *a = getUnusedObject();
-		a->setActive(true);
+     Asteroid *a = getUnusedObject();
 
-		double x = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 4);
-		double y = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 4);
+      if (a != nullptr)
+      {
+        a->setActive(true);
 
-
-		if (x <= 2)
-			x = x * 100 + this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 50);
-		else
-			x = x * 200 + this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 50);
+        double x = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 4);
+        double y = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 4);
 
 
-		if (y <= 2)
-			y = y * 50;
-		else
-			y = y * 150;
+        if (x <= 2)
+          x = x * 100 + this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 50);
+        else
+          x = x * 200 + this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, 50);
 
-		a->setPosition(Vector2D(x, y));
 
-		Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
-		Vector2D v = (c - a->getPosition()).normalize() * (this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(1, 20) / 20.0) * velocity_;
+        if (y <= 2)
+          y = y * 50;
+        else
+          y = y * 150;
 
-		a->setVelocity(v);
+        a->setPosition(Vector2D(x, y));
 
-		a->setGenerations(generation);
+        Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
+        Vector2D v = (c - a->getPosition()).normalize() * (this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(1, 20) / 20.0) * velocity_;
 
-		a->setWidth(width_);
-		a->setHeight(height_);
+        a->setVelocity(v);
+
+        a->setGenerations(generation);
+
+        a->setWidth(width_);
+        a->setHeight(height_);
+      }
 	}
 }
 

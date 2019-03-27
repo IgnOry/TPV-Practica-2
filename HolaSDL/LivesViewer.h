@@ -8,5 +8,8 @@ public:
 	~LivesViewer();
 	virtual void render(Container * c, Uint32 time);
 
+protected:
+
+  Texture tex;
 };
 

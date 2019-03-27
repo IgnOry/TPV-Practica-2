@@ -50,6 +50,7 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg)
 		gameOver_ = false;
 		winner_ = 0;
 		lives_ = maxLives_;
+    score_ = 0;
 		break;
 	case msg::ROUND_START:
 		running_ = true;

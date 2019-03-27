@@ -37,7 +37,7 @@ void AsteroidsGame::start() {
 
 	while (!exit_) {
 		Uint32 startTime = SDL_GetTicks();
-		handleInput(startTime);
+		//handleInput(startTime);
 		update(startTime);
 		render(startTime);
 
@@ -52,30 +52,27 @@ void AsteroidsGame::stop() {
 }
 
 void AsteroidsGame::handleInput(Uint32 time) {
-	SDL_Event event;
-	while (SDL_PollEvent(&event)) {
-		if (event.type == SDL_KEYDOWN) {
 
-			switch (event.key.keysym.sym) {
-			case SDLK_ESCAPE:
-				exit_ = true;
-				break;
-			// Pressing f to toggle fullscreen.
-			case SDLK_f:
-				int flags = SDL_GetWindowFlags(window_);
-				if (flags & SDL_WINDOW_FULLSCREEN) {
-					SDL_SetWindowFullscreen(window_, 0);
-				} else {
-					SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
-				}
-				break;
-		
-			}
-		}
-		for (GameObject* o : actors_) {
-			o->handleInput(time, event);
-		}
-	}
+  if (InputHandler::getInstance()->isAnyKeyDown())
+  {
+    if (InputHandler::getInstance()->isKeyDown(SDLK_ESCAPE))
+      exit_ = true;
+
+    if (InputHandler::getInstance()->isKeyDown(SDLK_f))
+    {
+      int flags = SDL_GetWindowFlags(window_);
+      if (flags & SDL_WINDOW_FULLSCREEN) {
+        SDL_SetWindowFullscreen(window_, 0);
+      }
+      else {
+        SDL_SetWindowFullscreen(window_, SDL_WINDOW_FULLSCREEN);
+      }
+    }
+  }
+
+    for (GameObject* o : actors_) {
+      o->handleInput(time);
+  }
 }
 
 void AsteroidsGame::update(Uint32 time) {

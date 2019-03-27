@@ -7,7 +7,7 @@ class RotationIC: public InputComponent
 public:
 	RotationIC(SDL_Keycode key1, SDL_Keycode key2, double angle);
 	~RotationIC();
-	virtual void handleInput(Container* c, Uint32 time, const SDL_Event& event);
+	virtual void handleInput(Container* c, Uint32 time);
 
 private:
 	SDL_Keycode key1_;

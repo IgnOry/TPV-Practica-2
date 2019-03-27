@@ -169,6 +169,9 @@
     <ClCompile Include="ScoreViewer.cpp">
       <Filter>Archivos de recursos\.cpp</Filter>
     </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Archivos de recursos\.cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AsteroidsGame.h">
@@ -331,6 +334,9 @@
       <Filter>Archivos de recursos\h</Filter>
     </ClInclude>
     <ClInclude Include="ScoreViewer.h">
+      <Filter>Archivos de recursos\h</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
       <Filter>Archivos de recursos\h</Filter>
     </ClInclude>
   </ItemGroup>
