@@ -18,10 +18,13 @@ void GameCtrlIC::handleInput(Container * c, Uint32 time)
 
   if (InputHandler::getInstance()->isAnyKeyDown())
   {
-    if (InputHandler::getInstance()->isKeyDown(SDLK_RETURN) && !gm->getRunning())
-      c->globalSend(nullptr, msg::Message(msg::GAME_START, c->getId(), msg::Broadcast));
-    
-    c->globalSend(nullptr, msg::Message(msg::ROUND_START, c->getId(), msg::Broadcast));
+	  if (InputHandler::getInstance()->isKeyDown(SDLK_RETURN) && !gm->getRunning())
+	  {
+		  if (gm->getGameOver())
+			c->globalSend(nullptr, msg::Message(msg::GAME_START, c->getId(), msg::Broadcast));
+
+		  c->globalSend(nullptr, msg::Message(msg::ROUND_START, c->getId(), msg::Broadcast));
+	  }
   }
 }
 

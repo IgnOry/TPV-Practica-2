@@ -1,5 +1,6 @@
 #include "Asteroids.h"
-
+#include "Logger.h"
+#include <sstream>
 
 
 Asteroids::Asteroids(SDLGame* game): GameObjectPool(game),
@@ -61,6 +62,12 @@ void Asteroids::createAsteroidsRound(int n, int generation, int width_, int heig
 
         a->setWidth(width_);
         a->setHeight(height_);
+
+		Logger::getInstance()->log([c, v]() {
+			stringstream s;
+			s << "New asteroid: " << c << " " << v;
+			return s.str();
+		});
       }
 	}
 }

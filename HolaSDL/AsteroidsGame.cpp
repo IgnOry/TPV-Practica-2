@@ -1,5 +1,5 @@
 #include "AsteroidsGame.h"
-
+#include "Logger.h"
 
 using namespace std;
 
@@ -27,6 +27,8 @@ void AsteroidsGame::initGame() {
 	addObserver(&asteroids_);
 	addObserver(&bullets_);
 	addObserver(&manager_);
+
+	Logger::getInstance()->initInstance("log.txt");
 }
 
 void AsteroidsGame::closeGame() {
@@ -37,7 +39,7 @@ void AsteroidsGame::start() {
 
 	while (!exit_) {
 		Uint32 startTime = SDL_GetTicks();
-		//handleInput(startTime);
+		handleInput(startTime);
 		update(startTime);
 		render(startTime);
 
@@ -45,6 +47,7 @@ void AsteroidsGame::start() {
 		if (frameTime < 10)
 			SDL_Delay(10 - frameTime);
 	}
+	//delete Logger::getInstance();
 }
 
 void AsteroidsGame::stop() {
@@ -52,7 +55,8 @@ void AsteroidsGame::stop() {
 }
 
 void AsteroidsGame::handleInput(Uint32 time) {
-
+	InputHandler::getInstance()->update();
+	
   if (InputHandler::getInstance()->isAnyKeyDown())
   {
     if (InputHandler::getInstance()->isKeyDown(SDLK_ESCAPE))
@@ -69,10 +73,11 @@ void AsteroidsGame::handleInput(Uint32 time) {
       }
     }
   }
-
-    for (GameObject* o : actors_) {
-      o->handleInput(time);
-  }
+  
+	for (GameObject* o : actors_) {
+		o->handleInput(time);
+	}
+  
 }
 
 void AsteroidsGame::update(Uint32 time) {

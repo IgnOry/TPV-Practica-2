@@ -1,5 +1,6 @@
 ﻿#include "GunIC.h"
-
+#include "Logger.h"
+#include <sstream>
 
 GunIC::GunIC(SDL_Keycode key1): key1_(key1)
 {
@@ -22,6 +23,12 @@ void GunIC::handleInput(Container * c, Uint32 time)
       c->globalSend(c, msg::Shoot(c->getId(), msg::Broadcast, p, d, 0));
 
       c->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::GunShot, 0, 5);
+
+	  Logger::getInstance()->log([p, d]() {
+		  stringstream s;
+		  s << "Shooting: " << p << " " << d;
+		  return s.str();
+	  });
     }
   }
 }
