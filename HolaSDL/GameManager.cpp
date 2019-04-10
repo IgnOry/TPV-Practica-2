@@ -65,16 +65,16 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg)
 		gameOver_ = true;
 		winner_ = 2;
 		this->getGame()->getServiceLocator()->getAudios()->pauseMusic();
+    Logger::getInstance()->log("Round End");
 		globalSend(this, msg::Message(msg::ROUND_OVER, getId(), msg::Broadcast));
 		globalSend(this, msg::Message(msg::GAME_OVER, getId(), msg::Broadcast));
-		Logger::getInstance()->log("Round End");
 
 		break;
 	case msg::FIGHTER_ASTEROID_COLLISION:
 		this->getGame()->getServiceLocator()->getAudios()->haltMusic(); //mirar channels
 		this->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, 2);
 		running_ = false;
-
+    Logger::getInstance()->log("Round End");
 		globalSend(this, msg::Message(msg::ROUND_OVER, getId(), msg::Broadcast));
 
 		if (lives_ == 0)
@@ -88,7 +88,5 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg)
 			lives_ += -1;
 
 		break;
-		Logger::getInstance()->log("Round End");
-
 	}
 }

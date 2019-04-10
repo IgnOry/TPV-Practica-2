@@ -181,6 +181,8 @@
     <ClCompile Include="BlockingQueue.cpp">
       <Filter>Archivos de recursos\.cpp</Filter>
     </ClCompile>
+    <ClCompile Include="BlackHole.cpp" />
+    <ClCompile Include="BlackHoles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AsteroidsGame.h">
@@ -357,5 +359,7 @@
     <ClInclude Include="BlockingQueue.h">
       <Filter>Archivos de recursos\h</Filter>
     </ClInclude>
+    <ClInclude Include="BlackHole.h" />
+    <ClInclude Include="BlackHoles.h" />
   </ItemGroup>
 </Project>

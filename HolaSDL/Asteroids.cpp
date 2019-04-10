@@ -50,8 +50,8 @@ void Asteroids::createAsteroidsRound(int n, int generation, int width_, int heig
           y = y * 50;
         else
           y = y * 150;
-
-        a->setPosition(Vector2D(x, y));
+        Vector2D pos = Vector2D(x,y);
+        a->setPosition(pos);
 
         Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
         Vector2D v = (c - a->getPosition()).normalize() * (this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(1, 20) / 20.0) * velocity_;
@@ -63,9 +63,9 @@ void Asteroids::createAsteroidsRound(int n, int generation, int width_, int heig
         a->setWidth(width_);
         a->setHeight(height_);
 
-		Logger::getInstance()->log([c, v]() {
+		Logger::getInstance()->log([pos, v]() {
 			stringstream s;
-			s << "New asteroid: " << c << " " << v;
+			s << "New asteroid: " << pos << " " << v;
 			return s.str();
 		});
       }
@@ -74,7 +74,7 @@ void Asteroids::createAsteroidsRound(int n, int generation, int width_, int heig
 
 void Asteroids::createAsteroids(int n, int generation, int width_, int height_, Vector2D velocity_, double posX, double posY)
 {
-	for (int i = 0; i < n; i++)
+ 	for (int i = 0; i < n; i++)
 	{
 		Asteroid *a = getUnusedObject();
 		a->setActive(true);

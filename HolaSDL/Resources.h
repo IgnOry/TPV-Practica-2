@@ -23,6 +23,7 @@ public:
 		Badges,
 		WhiteRect,
 		Heart,
+    BlackHole,
 
 		// text
 		HelloWorld,

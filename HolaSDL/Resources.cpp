@@ -19,7 +19,9 @@ vector<Resources::ImageInfo> Resources::images_ {
 	{ Asteroid,"resources/images/asteroid.png" },
 	{ Badges,"resources/images/badges.png" },
 	{ WhiteRect,"resources/images/whiterect.png" },
-	{ Heart, "resources/images/heart.png"  }
+	{ Heart, "resources/images/heart.png"  },
+  { BlackHole, "resources/images/black-hole.png"  }
+
 };
 
 vector<Resources::TextMsgInfo> Resources::messages_ {

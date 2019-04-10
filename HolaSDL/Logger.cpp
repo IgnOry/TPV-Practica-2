@@ -17,5 +17,5 @@ void Logger::log(string info)
 
 void Logger::log(function<string()> f)
 {
-	
+    worker_.execute([this, f]() { log_ << f() << endl; });
 }
