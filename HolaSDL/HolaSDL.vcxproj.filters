@@ -183,6 +183,8 @@
     </ClCompile>
     <ClCompile Include="BlackHole.cpp" />
     <ClCompile Include="BlackHoles.cpp" />
+    <ClCompile Include="FighterBlackHoleCollision.cpp" />
+    <ClCompile Include="BulletsBlackHolesCollision.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AsteroidsGame.h">
@@ -361,5 +363,7 @@
     </ClInclude>
     <ClInclude Include="BlackHole.h" />
     <ClInclude Include="BlackHoles.h" />
+    <ClInclude Include="FighterBlackHoleCollision.h" />
+    <ClInclude Include="BulletsBlackHolesCollision.h" />
   </ItemGroup>
 </Project>

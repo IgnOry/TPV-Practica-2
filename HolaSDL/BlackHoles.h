@@ -6,7 +6,7 @@
 #include "Messages_defs.h"
 
 
-class BlackHoles : public GameObjectPool <BlackHole, 50>
+class BlackHoles : public GameObjectPool <BlackHole, 8>
 {
 public:
   BlackHoles(SDLGame* game);

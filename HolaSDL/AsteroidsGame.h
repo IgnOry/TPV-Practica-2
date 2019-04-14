@@ -4,6 +4,7 @@
 
 #include "Fighter.h"
 #include "Asteroids.h"
+#include "BlackHoles.h"
 #include "Bullets.h"
 #include "SDLGame.h"
 #include "GameObject.h"
@@ -34,6 +35,7 @@ private:
 
 	Fighter fighterContainer_;
 	Asteroids asteroids_;
+	BlackHoles blackHoles_;
 	Bullets bullets_;
 	GameManager manager_;
 };

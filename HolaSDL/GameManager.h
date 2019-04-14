@@ -6,7 +6,9 @@
 #include "GameStatusViewGC.h"
 #include "LivesViewer.h"
 #include "FighterAsteroidCollision.h"
+#include "FighterBlackHoleCollision.h"
 #include "BulletsAsteroidsCollision.h"
+#include "BulletsBlackHolesCollision.h"
 #include "Messages_defs.h"
 
 class GameManager : public Container {
@@ -29,6 +31,7 @@ private:
 	int score_; 
 	int lives_;  
 	int winner_;  // 0=none, 1=asteroids, 2=fighter 
+	void roundEnd();
 
    // components of GameManager
 	GameCtrlIC gameCtrl_;
@@ -36,5 +39,7 @@ private:
 	GameStatusViewGC gameStatusView_;
 	LivesViewer livesViewer_; 
 	FighterAsteroidCollision fighterAsteroidCollision_;
-	BulletsAsteroidsCollision bulletsAsteroidsCollision_; 
+	FighterBlackHoleCollision fighterBlackHoleCollision_;
+	BulletsAsteroidsCollision bulletsAsteroidsCollision_;
+	BulletsBlackHolesCollision bulletsBlackHolesCollision_;
 };

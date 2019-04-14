@@ -23,6 +23,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullets.cpp" />
     <ClCompile Include="BulletsAsteroidsCollision.cpp" />
+    <ClCompile Include="BulletsBlackHolesCollision.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Container.cpp" />
@@ -32,6 +33,7 @@
     <ClCompile Include="DemoIC.cpp" />
     <ClCompile Include="Fighter.cpp" />
     <ClCompile Include="FighterAsteroidCollision.cpp" />
+    <ClCompile Include="FighterBlackHoleCollision.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FontsManager.cpp" />
     <ClCompile Include="GameCtrlIC.cpp" />
@@ -83,6 +85,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Bullets.h" />
     <ClInclude Include="BulletsAsteroidsCollision.h" />
+    <ClInclude Include="BulletsBlackHolesCollision.h" />
     <ClInclude Include="Collisions.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Container.h" />
@@ -92,6 +95,7 @@
     <ClInclude Include="DemoIC.h" />
     <ClInclude Include="Fighter.h" />
     <ClInclude Include="FighterAsteroidCollision.h" />
+    <ClInclude Include="FighterBlackHoleCollision.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FontsManager.h" />
     <ClInclude Include="GameCtrlIC.h" />

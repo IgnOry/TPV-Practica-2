@@ -133,7 +133,14 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg)
 		this->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, 3);
 
 		break;
+	case msg::ASEROID_BLACKHOLE_COLLISION:
+		// Hay que hacer mover al asteroide a una posición ranmon, peor que no sea la del fighter, para ello hay que acceder a la posición del fighter
+		//tpAsteroid(static_cast<const msg::AsteroidBlackHoleCollisionMsg&>(msg).asteroid_, static_cast<const msg::AsteroidBlackHoleCollisionMsg&>(msg).fighter_->getPosition());
+		break;
 	}
 }
 
+void tpAsteroid(Asteroid* asteroid, Vector2D fighterPos) {
+
+}
 

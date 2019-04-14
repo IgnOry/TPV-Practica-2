@@ -23,7 +23,7 @@ public:
 		Badges,
 		WhiteRect,
 		Heart,
-    BlackHole,
+		BlackHole,
 
 		// text
 		HelloWorld,
@@ -43,7 +43,8 @@ public:
 		Wall_Hit,
 		Paddle_Hit,
 		GunShot,
-		Explosion
+		Explosion,
+		Missed
 	};
 
 	enum FontId {

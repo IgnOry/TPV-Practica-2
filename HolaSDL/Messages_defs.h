@@ -9,6 +9,7 @@
 
 class Asteroid;
 class Bullet;
+class BlackHole;
 
 namespace msg {
 
@@ -41,6 +42,15 @@ struct BulletAsteroidCollision: public msg::Message {
 	Asteroid* asteroid_;
 };
 
+struct BulletsBlackHoleCollision : public msg::Message {
+	BulletsBlackHoleCollision(msg::ObjectId sender, msg::ObjectId destination, Bullet* bullet, BlackHole* blackHole) :
+		Message(msg::BULLET_BLACKHOLE_COLLISION, sender, destination), bullet_(bullet), blackHole_(blackHole) {
+	}
+
+	Bullet* bullet_;
+	BlackHole* blackHole_;
+};
+
 struct FighterAsteroidCollisionMsg: public msg::Message {
 	FighterAsteroidCollisionMsg(msg::ObjectId sender, msg::ObjectId destination, GameObject* fighter, Asteroid* asteroid) :
 	Message(msg::FIGHTER_ASTEROID_COLLISION, sender, destination), fighter_(fighter), asteroid_(asteroid)  {
@@ -48,6 +58,24 @@ struct FighterAsteroidCollisionMsg: public msg::Message {
 
 	GameObject* fighter_;
 	Asteroid* asteroid_;
+};
+
+struct AsteroidBlackHoleCollisionMsg : public msg::Message {
+	AsteroidBlackHoleCollisionMsg(msg::ObjectId sender, msg::ObjectId destination, Asteroid* asteroid, BlackHole* blackHole) :
+		Message(msg::ASEROID_BLACKHOLE_COLLISION, sender, destination), asteroid_(asteroid), blackHole_(blackHole) {
+	}
+
+	Asteroid* asteroid_;
+	BlackHole* blackHole_;
+};
+
+struct FighterBlackHoleCollisionMsg : public msg::Message {
+	FighterBlackHoleCollisionMsg(msg::ObjectId sender, msg::ObjectId destination, GameObject* fighter, BlackHole* blackHole) :
+		Message(msg::FIGHTER_BLACKHOLE_COLLISION, sender, destination), fighter_(fighter), blackHole_(blackHole) {
+	}
+
+	GameObject* fighter_;
+	BlackHole* blackHole_;
 };
 
 struct AsteroidDestroyed: public msg::Message {
@@ -79,5 +107,10 @@ struct AsteroidsInfo: public msg::Message {
 	}
 	const std::vector<Asteroid*>*  asteroids_;
 };
-
+struct BlackHolesInfo : public msg::Message {
+	BlackHolesInfo(msg::ObjectId sender, msg::ObjectId destination, const std::vector<BlackHole*>* blackHoles) :
+		Message(msg::BLACKHOLES_INFO, sender, destination), blackHoles_(blackHoles) {
+	}
+	const std::vector<BlackHole*>*  blackHoles_;
+};
 };

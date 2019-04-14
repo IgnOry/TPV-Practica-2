@@ -20,7 +20,7 @@ vector<Resources::ImageInfo> Resources::images_ {
 	{ Badges,"resources/images/badges.png" },
 	{ WhiteRect,"resources/images/whiterect.png" },
 	{ Heart, "resources/images/heart.png"  },
-  { BlackHole, "resources/images/black-hole.png"  }
+	{ BlackHole, "resources/images/black-hole.png"  }
 
 };
 
@@ -42,6 +42,7 @@ vector<Resources::SoundInfo> Resources::sounds_ {
 	{ Wall_Hit, "resources/sound/wall_hit.wav" },
 	{ Paddle_Hit, "resources/sound/paddle_hit.wav" },
 	{ GunShot, "resources/sound/GunShot.wav" },
-	{ Explosion, "resources/sound/explosion.wav" }
+	{ Explosion, "resources/sound/explosion.wav" },
+	{ Missed, "resources/sound/missed.wav" }
 };
 

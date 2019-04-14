@@ -9,7 +9,9 @@ GameManager::GameManager(SDLGame * game) : running_(false), gameOver_(true), sco
 	addC(&gameStatusView_);
 	addC(&livesViewer_);
 	addC(&fighterAsteroidCollision_);
+	addC(&fighterBlackHoleCollision_);
 	addC(&bulletsAsteroidsCollision_);
+	addC(&bulletsBlackHolesCollision_);
 }
 
 GameManager::~GameManager()
@@ -50,7 +52,7 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg)
 		gameOver_ = false;
 		winner_ = 0;
 		lives_ = maxLives_;
-    score_ = 0;
+		score_ = 0;
 		break;
 	case msg::ROUND_START:
 		running_ = true;
@@ -65,28 +67,37 @@ void GameManager::receive(const void * senderObj, const msg::Message & msg)
 		gameOver_ = true;
 		winner_ = 2;
 		this->getGame()->getServiceLocator()->getAudios()->pauseMusic();
-    Logger::getInstance()->log("Round End");
+		Logger::getInstance()->log("Round End");
 		globalSend(this, msg::Message(msg::ROUND_OVER, getId(), msg::Broadcast));
 		globalSend(this, msg::Message(msg::GAME_OVER, getId(), msg::Broadcast));
 
 		break;
 	case msg::FIGHTER_ASTEROID_COLLISION:
 		this->getGame()->getServiceLocator()->getAudios()->haltMusic(); //mirar channels
-		this->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, 2);
-		running_ = false;
-    Logger::getInstance()->log("Round End");
-		globalSend(this, msg::Message(msg::ROUND_OVER, getId(), msg::Broadcast));
-
-		if (lives_ == 0)
-		{
-			gameOver_ = true;
-			winner_ = 1;
-			globalSend(this, msg::Message(msg::GAME_OVER, getId(), msg::Broadcast));
-		}
-
-		else
-			lives_ += -1;
-
+  		this->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, 2);
+		roundEnd();
+		break;
+	case msg::FIGHTER_BLACKHOLE_COLLISION:
+		this->getGame()->getServiceLocator()->getAudios()->haltMusic(); //mirar channels
+		this->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Missed, 0, 2);
+		roundEnd();
 		break;
 	}
 }
+
+void GameManager::roundEnd() {
+	running_ = false;
+
+	Logger::getInstance()->log("Round End");
+	globalSend(this, msg::Message(msg::ROUND_OVER, getId(), msg::Broadcast));
+
+	if (lives_ == 0)
+	{
+		gameOver_ = true;
+		winner_ = 1;
+		globalSend(this, msg::Message(msg::GAME_OVER, getId(), msg::Broadcast));
+	}
+	else
+		lives_ += -1;
+}
+
