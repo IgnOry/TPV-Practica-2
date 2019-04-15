@@ -12,6 +12,8 @@ GameManager::GameManager(SDLGame * game) : running_(false), gameOver_(true), sco
 	addC(&fighterBlackHoleCollision_);
 	addC(&bulletsAsteroidsCollision_);
 	addC(&bulletsBlackHolesCollision_);
+	addC(&asteroidsBlackHolesCollision_);
+
 }
 
 GameManager::~GameManager()

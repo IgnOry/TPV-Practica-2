@@ -5,20 +5,14 @@
 
 Asteroids::Asteroids(SDLGame* game): GameObjectPool(game),
 asteroidImage_(game->getServiceLocator()->getTextures()->getTexture(Resources::Asteroid)), naturalMove_(), rotating_(5), showUpAtOppositeSide_()
-{
-	//game_ = game;
-			
+{		
 	for (Asteroid* a : getAllObjects()) {
 		a->addC(&asteroidImage_);
 		a->addC(&naturalMove_);
 		a->addC(&rotating_);
 		a->addC(&showUpAtOppositeSide_);
-		//a->setPosition(Vector2D(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(50, 750), getGame()->getServiceLocator()->getRandomGenerator()->nextInt(50, 550)));
-		//a->setVelocity(Vector2D(double(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(-100, 100))/100, double(getGame()->getServiceLocator()->getRandomGenerator()->nextInt(-100, 100))/100));
 	}
-
   setId(msg::ObjectId::Asteroids);
-
 }
 
 
@@ -81,7 +75,6 @@ void Asteroids::createAsteroids(int n, int generation, int width_, int height_, 
 		
 		a->setPosition(Vector2D(posX, posY));
 					
-		//Vector2D c = Vector2D(getGame()->getWindowWidth() / 2, getGame()->getWindowHeight() / 2);
 		Vector2D v = velocity_;
 
 		v = v.rotate(this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(1, 360));
@@ -105,7 +98,7 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg)
 		globalSend(this, msg::AsteroidsInfo(getId(), msg::Broadcast, &getAllObjects()));
 		break;
 	case msg::ROUND_START:
-		createAsteroidsRound(10, 3, 30, 30, 2);
+		createAsteroidsRound(5, 3, 30, 30, 2);
 		break;
 	case msg::ROUND_OVER:
 		deactiveAllObjects();
@@ -113,10 +106,7 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg)
 	case msg::BULLET_ASTEROID_COLLISION:
 
 		static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->setActive(false);
-		//senderobj.getId();
-		//static_cast<*Asteroid>(senderObj).
-		//senderObj.setActive(false);
-
+		
 		globalSend(this, msg::AsteroidDestroyed(getId(), msg::Broadcast, 4 - static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getGeneration()));
 
 		if (static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getGeneration() > 1)
@@ -126,21 +116,29 @@ void Asteroids::receive(const void* senderObj, const msg::Message& msg)
 			static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getVelocity() * 1.1,
 			static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getPosition().getX(),
 			static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getPosition().getY());
-
-		if (&getAllObjects() == 0)
-			globalSend(this, msg::Message(msg::NO_MORE_ASTEROIDS, this->getId(), msg::Broadcast));
-
 		this->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, 3);
+
+   		if (allObjectsNotActive())
+			globalSend(this, msg::Message(msg::NO_MORE_ASTEROIDS, this->getId(), msg::Broadcast));
 
 		break;
 	case msg::ASEROID_BLACKHOLE_COLLISION:
+		
 		// Hay que hacer mover al asteroide a una posición ranmon, peor que no sea la del fighter, para ello hay que acceder a la posición del fighter
-		//tpAsteroid(static_cast<const msg::AsteroidBlackHoleCollisionMsg&>(msg).asteroid_, static_cast<const msg::AsteroidBlackHoleCollisionMsg&>(msg).fighter_->getPosition());
+		tpAsteroid(static_cast<const msg::AsteroidBlackHoleCollisionMsg&>(msg).asteroid_, static_cast<const msg::AsteroidBlackHoleCollisionMsg&>(msg).fighter_->getPosition()
+		+ Vector2D(static_cast<const msg::AsteroidBlackHoleCollisionMsg&>(msg).fighter_->getWidth(),static_cast<const msg::AsteroidBlackHoleCollisionMsg&>(msg).fighter_->getHeight()));
 		break;
 	}
 }
 
-void tpAsteroid(Asteroid* asteroid, Vector2D fighterPos) {
+void Asteroids::tpAsteroid(Asteroid* asteroid, Vector2D fighterPos) {
+	double x;
+	double y;
+	do {
+		x = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, this->getGame()->getWindowWidth());
+		y = this->getGame()->getServiceLocator()->getRandomGenerator()->nextInt(0, this->getGame()->getWindowHeight());
+	} while ((x < fighterPos.getX() + 100 && x > fighterPos.getX() - 100) && (y < fighterPos.getY() + 75 && y > fighterPos.getY() - 75));
 
+	asteroid->setPosition(Vector2D(x, y));
 }
 

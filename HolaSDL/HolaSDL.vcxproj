@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="Asteroids.cpp" />
+    <ClCompile Include="AsteroidsBlackHolesCollision.cpp" />
     <ClCompile Include="AsteroidsGame.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="BlackHole.cpp" />
@@ -75,6 +76,7 @@
   <ItemGroup>
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Asteroids.h" />
+    <ClInclude Include="AsteroidsBlackHolesCollision.h" />
     <ClInclude Include="AsteroidsGame.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="BlackHole.h" />

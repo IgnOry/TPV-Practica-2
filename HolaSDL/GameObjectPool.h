@@ -18,7 +18,7 @@ public:
 	T* getUnusedObject();
 	const vector<T*>& getAllObjects();
 	void deactiveAllObjects();
-
+	bool allObjectsNotActive();
 private:
 	array<T, SIZE> objs_;
 	vector<T*> objsPointers_;
@@ -97,4 +97,14 @@ inline void GameObjectPool<T,SIZE>::deactiveAllObjects() {
 	for (auto &o : objs_) {
 		o.setActive(false);
 	}
+}
+
+template<typename T, int SIZE>
+inline bool GameObjectPool<T, SIZE>::allObjectsNotActive() {
+	for (auto &o : objs_) {
+		if (o.isActive()) {
+			return false;
+		}
+	}
+	return true;
 }

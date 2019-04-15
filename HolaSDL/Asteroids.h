@@ -20,5 +20,6 @@ private:
 	NaturalMovePC naturalMove_;
 	RotatingPC rotating_;
 	ShowUpAtOppositeSidePC showUpAtOppositeSide_;
+	void tpAsteroid(Asteroid* asteroid, Vector2D fighterPos);
 	//vector<Asteroid*> asteroids;
 };

@@ -74,31 +74,11 @@ void BlackHoles::receive(const void * senderObj, const msg::Message & msg)
   case msg::BULLET_BLACKHOLE_COLLISION:
 
     static_cast<const msg::BulletsBlackHoleCollision&>(msg).bullet_->setActive(false);
-    //senderobj.getId();
-    //static_cast<*Asteroid>(senderObj).
-    //senderObj.setActive(false);
-
-    /*globalSend(this, msg::AsteroidDestroyed(getId(), msg::Broadcast, 4 - static_cast<const msg::BulletsBlackHoleCollision&>(msg).bullet_->setActive(false)));
-
-    if (static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getGeneration() > 1)
-      createAsteroids(2, static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getGeneration() - 1,
-        static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getWidth() * 0.75,
-        static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getHeight() * 0.75,
-        static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getVelocity() * 1.1,
-        static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getPosition().getX(),
-        static_cast<const msg::BulletAsteroidCollision&>(msg).asteroid_->getPosition().getY());
-
-    if (&getAllObjects() == 0)
-      globalSend(this, msg::Message(msg::NO_MORE_ASTEROIDS, this->getId(), msg::Broadcast));
-
-    this->getGame()->getServiceLocator()->getAudios()->playChannel(Resources::Explosion, 0, 3);*/
-
     break;
   case msg::GAME_OVER:
 	  round_ = 0;
 	  break;
   }
- 
 }
 
 BlackHoles::~BlackHoles()
