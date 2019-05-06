@@ -1,11 +1,27 @@
 
-Al añadir un proyecto nuevo recuerda añadir la página de propiedades ProyectosSDL.props al nuevo proyecto:
-Menú VER -> administrador de propiedades -> Agregar hoja de propiedades existente -> ProyectosSDL.props > Guardar
+This template already includes all SDL libraries. You can start using
+it for you assignments, etc.
 
-Las librerias que se utilizan en esta solución (en el directorio bin) son las librerias de los directorios lib\x86 de SDL-2.0.4 y SDL_image-2.0.1.
-Si quieres usar las librerias de lib\x64 copialas de SDL-2.0.4 y SDL_image-2.0.1 al directorio bin de la solución.
-Abre el archivo ProyectosSDL.props y modifica la línea correspondiente a LibraryPath.
 
-Si quieres añadir una nueva libreria, copia su directorio en la solución y los bin de la libreria en el directorio bin de la solución.
-Y añade los nuevos elementos al archivo ProyectosSDL.props en las lineas: IncludePath, LibraryPath y AdditionalDependencies.
-También puedes crear otras páginas de propiedades.
+If you want to create your own new project do the following:
+
+ - Create your new project in Visual Studio
+
+ - Copy the following directories directories from this template to
+   your project
+
+    bin/
+    SDL2-2.0.7/
+    SDL2_mixer-2.0.2/
+    SDL2_ttf-2.0.14/  
+    SDL2_image-2.0.1/
+    SDL2_net-2.0.1/
+
+ - In Visual Studio, go to View -> Other Windows -> Property Manager
+ 
+ - Select "Add Existing Property Sheet", and then select the file
+   SDLProject.props from this template
+ 
+ - You are done!
+
+

@@ -1,0 +1,22 @@
+﻿  MAIN.cpp
+c:\windows kits\10\include\10.0.14393.0\ucrt\crtdbg.h(302): warning C4005: '_malloca': macro redefinition
+  c:\windows kits\10\include\10.0.14393.0\ucrt\malloc.h(120): note: see previous definition of '_malloca'
+     Creating library C:\hlocal\TPV\SDLProject\bin\SDLProjectDebug.lib and object C:\hlocal\TPV\SDLProject\bin\SDLProjectDebug.exp
+MAIN.obj : error LNK2019: unresolved external symbol SDL_CreateWindow referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MAIN.obj : error LNK2019: unresolved external symbol SDL_DestroyWindow referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MAIN.obj : error LNK2019: unresolved external symbol SDL_CreateRenderer referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MAIN.obj : error LNK2019: unresolved external symbol SDL_SetRenderDrawColor referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MAIN.obj : error LNK2019: unresolved external symbol SDL_RenderClear referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MAIN.obj : error LNK2019: unresolved external symbol SDL_RenderPresent referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MAIN.obj : error LNK2019: unresolved external symbol SDL_DestroyRenderer referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MAIN.obj : error LNK2019: unresolved external symbol SDL_Delay referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MAIN.obj : error LNK2019: unresolved external symbol SDL_Init referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MAIN.obj : error LNK2019: unresolved external symbol SDL_Quit referenced in function "void __cdecl firstTest(void)" (?firstTest@@YAXXZ)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\hlocal\TPV\SDLProject\SDL2-2.0.7\lib\x86\SDL2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV\SDLProject\SDL2-2.0.7\lib\x86\SDL2main.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV\SDLProject\SDL2_image-2.0.1\lib\x86\SDL2_image.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV\SDLProject\SDL2_ttf-2.0.14\lib\x86\SDL2_ttf.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV\SDLProject\SDL2_mixer-2.0.2\lib\x86\SDL2_mixer.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV\SDLProject\SDL2_net-2.0.1\lib\x86\SDL2_net.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV\SDLProject\bin\SDLProjectDebug.exe : fatal error LNK1120: 11 unresolved externals
