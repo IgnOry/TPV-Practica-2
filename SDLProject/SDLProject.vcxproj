@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{553C665E-1092-4B93-A092-AFFFA06753F0}</ProjectGuid>
     <RootNamespace>SDLProject</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -124,6 +124,7 @@
     <ClInclude Include="BoundingBoxGC.h" />
     <ClInclude Include="BroadCastObjectInfoPC.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletFighterCollision.h" />
     <ClInclude Include="Bullets.h" />
     <ClInclude Include="checkML.h" />
     <ClInclude Include="ClientInfo.h" />
@@ -132,10 +133,14 @@
     <ClInclude Include="Container.h" />
     <ClInclude Include="DeactivateOnBorderExit.h" />
     <ClInclude Include="Fighter.h" />
+    <ClInclude Include="FigtherFighterCollision.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FontsManager.h" />
+    <ClInclude Include="GameCtrlIC.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectPool.h" />
+    <ClInclude Include="GameStatusViewGC.h" />
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="GunIC.h" />
     <ClInclude Include="ImageGC.h" />
@@ -178,6 +183,7 @@
     <ClCompile Include="BoundingBoxGC.cpp" />
     <ClCompile Include="BroadCastObjectInfoPC.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletFighterCollision.cpp" />
     <ClCompile Include="Bullets.cpp" />
     <ClCompile Include="ClientInfo.cpp" />
     <ClCompile Include="Collisions.cpp" />
@@ -185,10 +191,14 @@
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="DeactivateOnBorderExit.cpp" />
     <ClCompile Include="Fighter.cpp" />
+    <ClCompile Include="FigtherFighterCollision.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FontsManager.cpp" />
+    <ClCompile Include="GameCtrlIC.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectPool.cpp" />
+    <ClCompile Include="GameStatusViewGC.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="GunIC.cpp" />
     <ClCompile Include="ImageGC.cpp" />

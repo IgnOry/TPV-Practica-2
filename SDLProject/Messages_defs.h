@@ -64,4 +64,45 @@ struct RemoteObjectInfo: public Message {
 	double velY_;
 	double rotation_;
 };
+
+struct FighterInfo : public msg::Message {
+	FighterInfo(msg::ObjectId sender, msg::ObjectId destination, GameObject* fighter) :
+		Message(msg::FIGHTER_INFO, sender, destination, sizeof(FighterInfo)), fighter_(fighter) {
+	}
+
+	GameObject*  fighter_;
+};
+
+struct BulletsInfoMsg : public msg::Message {
+	BulletsInfoMsg(msg::ObjectId sender, msg::ObjectId destination, const std::vector<Bullet*>* bullets) :
+		Message(msg::BULLETS_INFO, sender, destination, sizeof(BulletsInfoMsg)), bullets_(bullets) {
+	}
+	const std::vector<Bullet*>*  bullets_;
+};
+
+struct FighterFighterCollisionMsg : public msg::Message {
+	FighterFighterCollisionMsg(msg::ObjectId sender, msg::ObjectId destination, GameObject* fighter0, GameObject* fighter1) :
+		Message(msg::FIGHTER_FIGHTER_COLLISION, sender, destination, sizeof(BulletsInfoMsg)), fighter0_(fighter0), fighter1_(fighter1) {
+	}
+
+	GameObject* fighter0_;
+	GameObject* fighter1_;
+};
+
+struct BulletFighterCollision : public msg::Message {
+	BulletFighterCollision(msg::ObjectId sender, msg::ObjectId destination, Bullet* bullet, GameObject* fighter) :
+		Message(msg::BULLET_FIGHTER_COLLISION, sender, destination, sizeof(BulletsInfoMsg)), bullet_(bullet), fighter_(fighter) {
+	}
+
+	Bullet* bullet_;
+	GameObject* fighter_;
+};
+
+struct GameOver : public msg::Message {
+	GameOver(msg::ObjectId sender, msg::ObjectId destination, ObjectId id) :
+		Message(msg::GAME_OVER, sender, destination, sizeof(BulletsInfoMsg)), id_(id) {
+	}
+
+	int id_;
+};
 };

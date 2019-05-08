@@ -11,7 +11,8 @@ Fighter::Fighter(msg::ObjectId id, SDLGame* game) :
 	setWidth(40);
 	setHeight(50);
 	setId(id);
-	setActive(true);
+	setActive(false);
+
 	addC(&fighterImage_);
 
 	if ((ClientInfo::instance()->getClientId() == 0 && getId() == msg::Fighter_0) || (ClientInfo::instance()->getClientId() == 1 && getId() == msg::Fighter_1)) {
@@ -42,9 +43,15 @@ void Fighter::receive(const void* senderObj, const msg::Message& msg) {
 			setVelocity(Vector2D(m.velX_, m.velY_));
 			setRotation(m.rotation_);
 		}
-
+	case msg::GAME_START:
+		setActive(true);
 		break;
-
+	case msg::GAME_OVER: 
+		setActive(false);
+		break;
+	case msg::STOP_GAME :
+		setActive(false);
+		break;
 	default:
 		break;
 	}

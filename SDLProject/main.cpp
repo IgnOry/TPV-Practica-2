@@ -13,7 +13,13 @@ void clientMode(char* host, int port) {
 
 void severMode(int port) {
 	Server s;
-	s.start(port);
+	thread serverThread([port, &s]() {
+		s.start(port);
+	});
+	const char* host = "localhost";
+	clientMode((char*)host, port);
+	s.stop();
+	serverThread.join();
 }
 
 //void severMode(int port) {
