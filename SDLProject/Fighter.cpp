@@ -44,13 +44,20 @@ void Fighter::receive(const void* senderObj, const msg::Message& msg) {
 			setRotation(m.rotation_);
 		}
 	case msg::GAME_START:
+		if (ClientInfo::instance()->getClientId() == 0)
+			globalSend(this, msg::FighterInfo(getId(), msg::Broadcast, this));
 		setActive(true);
 		break;
 	case msg::GAME_OVER: 
+		cout << "partida acabada" << endl;
 		setActive(false);
 		break;
 	case msg::STOP_GAME :
 		setActive(false);
+		break;
+	case msg::BULLET_FIGHTER_COLLISION:
+		setActive(false);
+		cout << "destruido" << endl;
 		break;
 	default:
 		break;

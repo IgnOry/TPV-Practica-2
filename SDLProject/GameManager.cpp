@@ -16,7 +16,6 @@ GameManager::GameManager(SDLGame* game) :
 	if (ClientInfo::instance()->getClientId() == 0)
 	{
 		addC(&bulletFighterCollision_);
-		addC(&figtherFighterCollision_);
 	}
 }
 
@@ -63,8 +62,7 @@ void GameManager::receive(const void* senderObj, const msg::Message& msg) {
 		break;
 	case msg::BULLET_FIGHTER_COLLISION:
 		const msg::BulletFighterCollision& m = static_cast<const msg::BulletFighterCollision&>(msg);
-		if (ClientInfo::instance()->getClientId() == 0)
-			winner_ = m.clientId_;
+		winner_ = ClientInfo::instance()->getClientId();
 		setStatus(GameStatus::READY);
 		globalSend(nullptr, msg::Message(msg::GAME_OVER, getId(), msg::Broadcast)); //getId()?
 		break;

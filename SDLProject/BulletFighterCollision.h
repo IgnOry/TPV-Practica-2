@@ -14,7 +14,9 @@ public:
 
 protected:
 	GameObject* fighter0_ = nullptr;
-	//GameObject* fighter1_ = nullptr;
-	const vector<Bullet*>* bullets_ = nullptr;
+	GameObject* fighter1_ = nullptr;
+	const vector<Bullet*>* bullets0_ = nullptr;
+	const vector<Bullet*>* bullets1_ = nullptr;
+
 };
 

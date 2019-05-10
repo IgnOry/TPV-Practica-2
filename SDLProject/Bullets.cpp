@@ -36,6 +36,8 @@ void Bullets::receive(const void* senderObj, const msg::Message& msg) {
 	switch ( msg.type_) {
 
 	case msg::GAME_START:
+		if (ClientInfo::instance()->getClientId() == 0)
+			globalSend(this, msg::BulletsInfoMsg(getId(), msg::Broadcast, &getAllObjects()));
 		setActive(true);
 		break;
 	case msg::GAME_OVER:

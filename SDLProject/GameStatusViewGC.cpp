@@ -24,7 +24,7 @@ void GameStatusViewGC::render(Container* c, Uint32 time) {
 	}
 
 	if (gm->getWinner() != -1)
-		msg = ("Winner is Player " + gm->getWinner());
+		msg = ("Winner is Player " + to_string(gm->getWinner()));
 
 	if (msg.length() > 0) {
 		// show the winner

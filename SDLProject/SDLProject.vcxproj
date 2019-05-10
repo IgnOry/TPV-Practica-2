@@ -133,7 +133,6 @@
     <ClInclude Include="Container.h" />
     <ClInclude Include="DeactivateOnBorderExit.h" />
     <ClInclude Include="Fighter.h" />
-    <ClInclude Include="FigtherFighterCollision.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="FontsManager.h" />
     <ClInclude Include="GameCtrlIC.h" />
@@ -191,7 +190,6 @@
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="DeactivateOnBorderExit.cpp" />
     <ClCompile Include="Fighter.cpp" />
-    <ClCompile Include="FigtherFighterCollision.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="FontsManager.cpp" />
     <ClCompile Include="GameCtrlIC.cpp" />

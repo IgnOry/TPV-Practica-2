@@ -3,7 +3,6 @@
 #include "Container.h"
 #include "GameCtrlIC.h"
 #include "GameStatusViewGC.h"
-#include "FigtherFighterCollision.h"
 #include "BulletFighterCollision.h"
 
 /*
@@ -33,7 +32,6 @@ private:
 	GameStatusViewGC gameStatusGC_;
 	GameCtrlIC gameCtrl_;
 	GameStatus status_;
-	FigtherFighterCollision figtherFighterCollision_;
 	BulletFighterCollision bulletFighterCollision_;
 	const static int NUM_OF_PLAYERS_ = 2;
 	int numOfConnectPlayers_;

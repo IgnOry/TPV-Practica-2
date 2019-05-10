@@ -171,9 +171,6 @@
     <ClInclude Include="BulletFighterCollision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FigtherFighterCollision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\SDLProject.props" />
@@ -322,9 +319,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BulletFighterCollision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FigtherFighterCollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
