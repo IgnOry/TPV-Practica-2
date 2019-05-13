@@ -57,14 +57,20 @@ void GameManager::receive(const void* senderObj, const msg::Message& msg) {
 	default:
 		break;
 	case msg::GAME_OVER:
-		winner_ = getId();
+		//winner_ = getId();
 		setStatus(GameStatus::READY);
 		break;
 	case msg::BULLET_FIGHTER_COLLISION:
-		const msg::BulletFighterCollision& m = static_cast<const msg::BulletFighterCollision&>(msg);
-		winner_ = ClientInfo::instance()->getClientId();
-		setStatus(GameStatus::READY);
-		globalSend(nullptr, msg::Message(msg::GAME_OVER, getId(), msg::Broadcast)); //getId()?
+		cout << "client id: " << msg.clientId_ << endl;
+		if (msg.clientId_ == 0) {
+			const msg::BulletFighterCollision& m = static_cast<const msg::BulletFighterCollision&>(msg);
+			if (m.clientId_ == 0) winner_ = 1;
+			else winner_ = 0;
+			cout << winner_;
+			setStatus(GameStatus::READY);
+			globalSend(nullptr, msg::Message(msg::GAME_OVER, getId(), msg::Broadcast)); //getId()?
+
+		}
 		break;
 	}
 }

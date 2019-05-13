@@ -1,6 +1,7 @@
 #include "BulletFighterCollision.h"
 #include "Collisions.h"
 #include "GameManager.h"
+#include "Messages_decl.h"
 
 
 BulletFighterCollision::BulletFighterCollision()
@@ -32,20 +33,24 @@ void BulletFighterCollision::receive(Container * c, const msg::Message & msg)
 {
 	switch (msg.type_) {
 	case msg::FIGHTER_INFO:
-		if (msg.clientId_ == 0)
-		{
-			fighter0_ = static_cast<const msg::FighterInfo&>(msg).fighter_;
-			cout << "caza 0" << msg.clientId_ << endl;
-		}
-		else
-		{
-			fighter1_ = static_cast<const msg::FighterInfo&>(msg).fighter_;
-			cout << "caza 1" << msg.clientId_ << endl;
+		if (msg.clientId_ == 0) {
+			if (static_cast<const msg::FighterInfo&>(msg).fighter_->getId() == msg::Fighter_0) {
+				fighter0_ = static_cast<const msg::FighterInfo&>(msg).fighter_;
+				cout << "caza 0 " << msg.clientId_ << endl;
+			}
+			else
+			{
+				fighter1_ = static_cast<const msg::FighterInfo&>(msg).fighter_;
+				cout << "caza 1 " << msg.clientId_ << endl;
 
+			}
+			break;
+	case msg::BULLETS_INFO:
+		if (msg.clientId_ == 0) {
+			bullets0_ = static_cast<const msg::BulletsInfoMsg&>(msg).bullets_;
+			cout << "balas " << msg.clientId_ << endl;
 		}
 		break;
-	case msg::BULLETS_INFO:
-			bullets0_ = static_cast<const msg::BulletsInfoMsg&>(msg).bullets_;
-		break;
+		}
 	}
 }

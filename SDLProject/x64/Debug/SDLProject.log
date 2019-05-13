@@ -1,15 +1,14 @@
 ﻿  AsteroidsGame.cpp
   AudioManager.cpp
   BoundingBoxGC.cpp
-c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\boundingboxgc.cpp(41): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\boundingboxgc.cpp(42): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\boundingboxgc.cpp(43): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\boundingboxgc.cpp(44): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\boundingboxgc.cpp(57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\hlocal\tpv-practica-2\sdlproject\boundingboxgc.cpp(41): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\hlocal\tpv-practica-2\sdlproject\boundingboxgc.cpp(42): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\hlocal\tpv-practica-2\sdlproject\boundingboxgc.cpp(43): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\hlocal\tpv-practica-2\sdlproject\boundingboxgc.cpp(44): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\hlocal\tpv-practica-2\sdlproject\boundingboxgc.cpp(57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   BroadCastObjectInfoPC.cpp
   Bullet.cpp
   BulletFighterCollision.cpp
-c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\bulletfightercollision.cpp(24): warning C4390: ';': empty controlled statement found; is this the intent?
   Bullets.cpp
   ClientInfo.cpp
   Collisions.cpp
@@ -17,23 +16,20 @@ c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\bulletfighterc
   Container.cpp
   DeactivateOnBorderExit.cpp
   Fighter.cpp
-  FigtherFighterCollision.cpp
-c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\figtherfightercollision.cpp(22): warning C4390: ';': empty controlled statement found; is this the intent?
   Font.cpp
   FontsManager.cpp
   GameCtrlIC.cpp
   GameManager.cpp
   GameObject.cpp
   GameObjectPool.cpp
+  GameStatusViewGC.cpp
   Generating Code...
   Compiling...
-  GameStatusViewGC.cpp
   GraphicsComponent.cpp
   GunIC.cpp
   ImageGC.cpp
   InputComponent.cpp
   InputHandler.cpp
-  main.cpp
   NaturalMovePC.cpp
   NetworkMessenger.cpp
   Observer.cpp
@@ -47,22 +43,21 @@ c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\figtherfighter
   SDLFontsManager.cpp
   SDLGame.cpp
   SDLTexturesManager.cpp
-  Generating Code...
-c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\main.cpp(56): warning C4715: 'SDL_main': not all control paths return a value
-  Compiling...
   Server.cpp
   ServerConnection.cpp
+  Generating Code...
+  Compiling...
   ServiceLocator.cpp
   ShowUpAtOppositeSidePC.cpp
   SRandBasedGenerator.cpp
-c:\users\usuario_local\documents\github\tpv-practica-2\sdlproject\srandbasedgenerator.cpp(10): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\hlocal\tpv-practica-2\sdlproject\srandbasedgenerator.cpp(10): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Texture.cpp
   TexturesManager.cpp
   ThrustIC.cpp
   Vector2D.cpp
   Generating Code...
-  LINK : C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\bin\SDLProjectDebug.exe not found or not built by the last incremental link; performing full link
-     Creating library C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\bin\SDLProjectDebug.lib and object C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\bin\SDLProjectDebug.exp
+  LINK : C:\hlocal\TPV-Practica-2\bin\SDLProjectDebug.exe not found or not built by the last incremental link; performing full link
+     Creating library C:\hlocal\TPV-Practica-2\bin\SDLProjectDebug.lib and object C:\hlocal\TPV-Practica-2\bin\SDLProjectDebug.exp
 AsteroidsGame.obj : error LNK2019: unresolved external symbol SDL_GetWindowFlags referenced in function "private: void __cdecl AsteroidsGame::handleInput(unsigned int)" (?handleInput@AsteroidsGame@@AEAAXI@Z)
 AsteroidsGame.obj : error LNK2019: unresolved external symbol SDL_SetWindowFullscreen referenced in function "private: void __cdecl AsteroidsGame::handleInput(unsigned int)" (?handleInput@AsteroidsGame@@AEAAXI@Z)
 AsteroidsGame.obj : error LNK2019: unresolved external symbol SDL_SetRenderDrawColor referenced in function "private: void __cdecl AsteroidsGame::render(unsigned int)" (?render@AsteroidsGame@@AEAAXI@Z)
@@ -148,10 +143,10 @@ Texture.obj : error LNK2019: unresolved external symbol SDL_RenderCopyEx referen
 Texture.obj : error LNK2019: unresolved external symbol SDL_DestroyTexture referenced in function "public: void __cdecl Texture::close(void)" (?close@Texture@@QEAAXXZ)
 Texture.obj : error LNK2019: unresolved external symbol IMG_Load referenced in function "public: bool __cdecl Texture::loadFromImg(struct SDL_Renderer *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?loadFromImg@Texture@@QEAA_NPEAUSDL_Renderer@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
 MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\SDL2-2.0.7\lib\x86\SDL2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\SDL2-2.0.7\lib\x86\SDL2main.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\SDL2_image-2.0.1\lib\x86\SDL2_image.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\SDL2_ttf-2.0.14\lib\x86\SDL2_ttf.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\SDL2_mixer-2.0.2\lib\x86\SDL2_mixer.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\SDL2_net-2.0.1\lib\x86\SDL2_net.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-C:\Users\usuario_local\Documents\GitHub\TPV-Practica-2\bin\SDLProjectDebug.exe : fatal error LNK1120: 73 unresolved externals
+C:\hlocal\TPV-Practica-2\SDL2-2.0.7\lib\x86\SDL2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV-Practica-2\SDL2-2.0.7\lib\x86\SDL2main.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV-Practica-2\SDL2_image-2.0.1\lib\x86\SDL2_image.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV-Practica-2\SDL2_ttf-2.0.14\lib\x86\SDL2_ttf.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV-Practica-2\SDL2_mixer-2.0.2\lib\x86\SDL2_mixer.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV-Practica-2\SDL2_net-2.0.1\lib\x86\SDL2_net.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\hlocal\TPV-Practica-2\bin\SDLProjectDebug.exe : fatal error LNK1120: 73 unresolved externals
